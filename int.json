@@ -1,0 +1,928 @@
+{"intents": [
+{"tag": "üdvözlet",
+"patterns": ["Szia", "Van itt valaki?","Sziasztok", "Helló", "Hello", "Hola", "Bonjour", "Konnichiwa", "Guten tag", "Ola"],
+"responses": ["Szia. Mond el, hogy érzed magad ma?", "Szia. Mi hozott ma ide?", "Szia. Hogy érzed magad ma?", "Örülök, hogy látlak. Jelenleg hogy érzed magad?", "Szia. Örülök, hogy visszatértél. Mi történik most a világodban?"]
+},
+{"tag": "reggel",
+"patterns": ["Jó reggelt"],
+"responses": ["Jó reggelt. Remélem jól aludtál. Hogy érzed magad ma? "]
+},
+{"tag": "délután",
+"patterns": ["Jó napot", "Szép napot"],
+"responses": ["Jó napot. Hogy telik a napod?"]
+},
+{"tag": "este",
+"patterns": ["Jó estét", "Szép estét"],
+"responses": ["Jó estét. Hogy telt a napod?"]
+},
+{"tag": "éjszaka",
+"patterns": ["Jó éjszakát", "Szép éjszakát", "Jó éjt"],
+"responses": ["Jó éjszakát. Aludj rendesen", "Jó éjszakát. Szép álmokat."]
+},
+{"tag": "viszlát",
+"patterns": ["Viszlát", "Au revoir", "Sayonara", "ok viszlát"],
+"responses": ["Viszlát.", "Szép napot kívánok.", "Viszlát! Várlak vissza.", "Hamarosan találkozunk."]
+},
+{"tag": "köszönöm",
+"patterns": ["Köszönöm", "Ez hasznos", "Köszönöm a segítséget", "Köszönöm szépen"],
+"responses": ["Szívesen segítek!", "Bármikor!", "Örülök", "Szeretettel!"]
+},
+{"tag": "nincs válasz",
+"patterns": [""],
+"responses": ["Sajnálom, nem értettelek.", "Kérlek folytasd.", "Nem biztos, hogy értem.", "Kérem, ne habozz beszélni velem."]
+},
+{"tag": "semleges válasz",
+"patterns": ["semmi", "nem sok","Szarul, de büszkén", "telik"],
+"responses": ["Értem. Akarsz valamiről beszélni?"]
+},
+{"tag": "körülbelül",
+"patterns": ["Ki vagy?", "Mi vagy?", "Ki vagy?", "Mesélj többet magadról.", "Mi a neved?", "Hogy hívnak? ", "Mi a neved?", "Mesélj magadról" ],
+"responses": ["Pandora vagyok, az Ön személyes terápiás AI-asszisztense. Hogy érzi magát ma", "Pandora vagyok, egy terápiás mesterséges intelligencia asszisztens, akit arra terveztek, hogy segítsen Önnek. Mesélj magadról.", "Én vagyok . Pandora. Beszélgetős ügynök vagyok, aki egy terapeutát imitál. Hogy érzed magad ma?", "Hívhatsz Pandorának.", "Pandora vagyok!", "Hívj Pandorának"]
+},
+{"tag": "készség",
+"patterns": ["Mit tehetsz?", "Miben tudsz segíteni?", "Hogyan segítesz?"],
+"responses": ["Általános tanácsokkal tudok szolgálni szorongással és depresszióval kapcsolatban, válaszolok a mentális egészséggel kapcsolatos kérdésekre és napi beszélgetéseket folytatok. Ne tekintsenek valódi mentálhigiénés dolgozó helyettesítőjének. Kérem, kérjen segítséget, ha nem érzi magát elégedett velem."]
+},
+{"tag": "létrehozás",
+"patterns": ["Ki teremtett téged?", "Hogyan készültél?", "Hogyan jöttél létre?"],
+"responses": ["Létrehozott: > PP", "Mély tanulási és természetes nyelvi feldolgozási technikákat használó szöveges adatkészletre képeztek ki", "Az igazi kérdés: ki teremtett téged?"]
+},
+{"tag": "név",
+"patterns": ["A nevem ", "nevem vagyok", "nevem hívnak "],
+"responses": ["Ó, örülök, hogy találkoztunk. Mesélj, milyen volt a heted?", "Örülök, hogy találkoztunk. Mondd el. Hogy érzed magad ma?", "Ez egy nagyszerű név. Mesélj többet magadról ."]
+},
+{"tag": "súgó",
+"patterns": ["Tudsz segíteni?", "Adj egy kezet, kérlek", "Tudsz segíteni?", "Miben segíthetsz?", "Támogatásra van szükségem", "Segítségre van szükségem", "Támogass kérlek"],
+"responses": ["Persze. Mond meg, hogyan tudok segíteni", "Mond el a problémádat, hogy segíthessek", "Igen, persze. Hogyan segíthetek?"]
+},
+{"tag": "szomorú",
+"patterns": ["Magányosnak érzem magam", "Levert vagyok", "Szomorú vagyok", "Olyan magányosnak érzem magam", "Üresnek érzem magam", "Nem érzem jól magam", "Rosszul érzem magam","Rosszul vagyok"],
+"responses": ["Sajnálattal hallom. Érted vagyok. Ha beszélsz róla, az segíthet. Szóval, mondd el, szerinted miért érzel így?", "Azért vagyok itt te. Meg tudnád mondani, miért érzel így?", "Miért gondolod, hogy így érzel?", "Mióta érzel így?"],
+"question": ["Milyen gyakran vagy szomorú?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.1.0",
+    "patterns":["néha","ritkán","egyszer-egyszer"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.1.1",
+    "patterns":["gyakran","sokszor","elég gyakran"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.1.2",
+    "patterns":["mindíg","szinte mindíg","folyamatosan"],
+    "responses":["3"]
+  }]
+},
+{"tag": "stressz",
+"patterns": ["Annyira stresszes vagyok", "Elakadtnak érzem magam", "Még mindig stresszesnek érzem magam", "annyira ki vagyok égve"],
+"responses": ["Szerinted mi okozza ezt?", "Vegyél egy mély lélegzetet, és szedd össze gondolataidat. Menj sétálni, ha lehetséges. Maradj hidratált", "Adj magadnak egy kis szünetet. Nyugi magad.", "Sajnálattal hallom. Mi az oka ennek?"]
+},
+{"tag": "értéktelen",
+"patterns": ["Olyan értéktelennek érzem magam.", "Nem tehetek semmit.", "Olyan haszontalan vagyok", "Nincs értelme semminek"],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["Sikerülnek e a dolgok amiknek nekiállsz?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.2.2",
+    "patterns":["Nekem semmi sem sikerül.","Nem szoktak","Soha sem sikerülnek."],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.2.1",
+    "patterns":["Sosem vagyok biztos abban, hogy a dolgaim hogyan sikerülnek.","Bizonytalan vagyok benne.","Nem tudom."],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.2.0",
+    "patterns":["Amit csinálok az jól sikerül.","Mindig sikerülnek","Igen"],
+    "responses":["3"]
+  }]
+},
+{"tag": "hatékonyság",
+"patterns": ["Nem sikerül semmi", "Semmi sem szokott összejönni", "Nem mennek a dolgaim", "Nem jön össze semmi", "Nem vagyok hatékony"],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["Jól, vagy rosszul szoktad a dolgaidat csinálni?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.3.0",
+    "patterns":["Mindent jól csinálok","Jól csinálom őket","Jól"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.3.1",
+    "patterns":["Sok mindent rosszul csinálok","Nem mindíg csinélom jól","Gyakran rosszul csinálom a dolgaim"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.3.2",
+    "patterns":["Mindent rosszul csinálok","Rosszul csinálok mindent","Rosszul","Semmit sem csinálok jól"],
+    "responses":["3"]
+  }]
+},
+{"tag": "depressziós",
+"patterns": ["Nem bírom tovább", "Annyira depressziós vagyok", "Azt hiszem, depressziós vagyok", "depresszióm van"],
+"responses": ["Segít, ha beszélsz arról, ami történik. Minden rendben lesz", "Beszélj velem. Mondj többet. Segít, ha megnyílsz valaki más előtt.", "Néha, amikor mi vagyunk depressziós, nehéz bármivel is törődni. Nehéz lehet a legegyszerűbb dolgokat megtenni. Adj magadnak időt a gyógyulásra."]
+},
+{"tag": "boldog",
+"patterns": ["Jól érzem magam ma.", "Boldog vagyok.", "Boldognak érzem magam.", "vidám", "jól vagyok", "jól érzem magam"],
+"responses": ["Nagyon jó hallani. Örülök, hogy így érzel.", "Ó, értem. Ez nagyszerű."],
+"question": ["Ennek örülök. Sok minden okoz neked örömet?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.4.0",
+    "patterns":["Sok mindenben örömem telik","Sok minden","Igen"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.4.1",
+    "patterns":["Néhány dologban lelem csak örömem","Nem mindenben lelem örömöm.","Nem tudom."],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.4.2",
+    "patterns":["Semmi sem szerez nekem örömet","Semmi sem okoz nekem örömöt","Nem"],
+    "responses":["3"]
+  }]
+},
+{"tag": "alkalmi",
+"patterns": ["Ja értem.", "ok", "oké", "szép", "bármi", "K", "jó", "igen", "ja", "nem", "igazán"],
+"responses": ["Megbeszéljük tovább, hogy miért érzel így.", "Hogy érezted magad a múlt héten?", "Hallgatom. Kérlek folytasd.", "Mondd tovább", "Tudnád fejtsd ki ezt?", "Gyere, gyere, és fejtsd ki a gondolataidat"]
+},
+{"tag": "szorongó",
+"patterns": ["Annyira szorongok.", "Annyira szorongok, mert ", "szorongok"],
+"responses": ["Ne légy kemény magaddal. Mi az oka ennek?", "Tudnál többet mondani erről az érzésről?", "Megértem, hogy ijesztő lehet. Mesélj még róla." , "Ne hagyd, hogy az apró aggodalmak lebukjanak. Mi a rosszabb, ami megtörténhet?"]
+},
+{"tag": "rossz_viselkedés",
+"patterns": ["Sokszor rámszólnak", "Azt mondják rossz vagyok", "Rossznak tartanak", "Szoktam rosszalkodni", "Nem vagyok jó"],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["Szoktál rosszul viselkedni?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.5.2",
+    "patterns":["Mindig rossz vagyok","Sokszor rossz vagyok","Mindíg rosszalkodom","Igen"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.5.1",
+    "patterns":["Gyakran viselkedem rosszul","Gyakran vagyok rossz","Nem tudom."],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.5.0",
+    "patterns":["Néha rossz a magaviseletem","Ritkán vagyok rossz","Nem"],
+    "responses":["3"]
+  }]
+},
+{"tag": "paranoia",
+"patterns": ["Valami rossz fog velem történni", "Rossz dolgok jönnek", "Félek a jövőtől", "Úgy érzem figyelnek", "Valaki követ"],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["Szoktad úgy érezni, hogy valami rossz fog történni veled?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.6.0",
+    "patterns":["Néha azt gondolom, hogy valami rossz dolog történik majd velem","Nem","Néha","Nem szoktam ezt érezni"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.6.1",
+    "patterns":["Aggódom, hogy valami rossz dolog történik majd velem","Szoktam","Szoktam ezt érezni"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.6.2",
+    "patterns":["Biztos vagyok benne, hogy szörnyű dolog történik majd velem","Gyakran","Igen","Mindíg ezt érzem"],
+    "responses":["3"]
+  }]
+},
+{"tag": "öngyűlölet",
+"patterns": ["Gyűlölöm magam", "Nem szeretem magam", "Ki nem állhatom magam", "Utálom magam", "Szeretem magam"],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["Szereted önmagad?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.7.2",
+    "patterns":["Gyűlölöm magam","Ki nem állhatom magam","Utálom"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.7.1",
+    "patterns":["Nem szeretem magam ","Nem","Nem kedvelem önmagam"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.7.0",
+    "patterns":["Szeretem magam","Imádom","Igen","Kedvelem magam","Semleges"],
+    "responses":["3"]
+  }]
+},
+{"tag": "önhibáztatás",
+"patterns": ["Minden az én hibám", "Én vagyok a hibás", "Hibáztam", "Utálom magam a hibáimért", "Nem tudok semmit se jól csinálni"],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["A rossz dolgokat a saját hibádnak érzed?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.8.2",
+    "patterns":["Minden, ami rossz, az az én hibám","Igen","Minden az én hibám"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.8.1",
+    "patterns":["Sok minden, ami rossz, az az én hibám ","Nem minden rossz dolog az én hibám","Nem teljesen"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.8.0",
+    "patterns":["Ami rossz, az általában nem az én hibám","Nem","Egyáltalán nem","Nem érzem a sajátomnak"],
+    "responses":["3"]
+  }]
+},
+{"tag": "sírás",
+"patterns": ["Sírni tudnék", "Mindig sírhatnékom van", "Gyakran van sírhatnékom", "Elfog a sírás"],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["Gyakran van sírhatnékod?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.10.2",
+    "patterns":["Mindig sírhatnékom van","Mindig az van","folyamatosan","rendszeresen"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.10.1",
+    "patterns":["Gyakran van sírhatnékom","Igen","Sokszor van sírhatnékom"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.10.0",
+    "patterns":["Néha van csak sírhatnékom ","Nem","Soha sincs sírhatnékom","Ritkán van sírhatnékom"],
+    "responses":["3"]
+  }]
+},
+{"tag": "harag",
+"patterns": ["Bosszús vagyok.", "Mindig mérges vagyok", "Haragszom", "Dühös vagyok"],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["Gyakran fel szoktak bosszantani?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.11.2",
+    "patterns":["Mindig felbosszant valami","Szinte mindig bosszús vagyok","folyamatosan","rendszeresen"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.11.1",
+    "patterns":["Gyakran felbosszantanak","Igen","Sokszor fel szoktak bosszantani"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.11.0",
+    "patterns":["Csak néha vagyok bosszús ","Nem","Soha sem vagyok bosszús","Nem szoktak felbosszantani"],
+    "responses":["3"]
+  }]
+},
+{"tag": "társaság",
+"patterns": ["Nem szeretek másokkal lenni", "Gyűlölöm a társaságot", "Nem szeretem az embereket", "Nem szívesen vagyok a barátaimmal"],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["Szereted mások társaságát?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.12.0",
+    "patterns":["Szeretem mások társaságát","Igen","Szeretem","Aha","Ja","Persze"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.12.1",
+    "patterns":["Gyakran nem kívánom a mások társaságát","Nem mindig.","Álltalában nem","Annyira nem"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.12.2",
+    "patterns":["Egyáltalán nem kívánom a mások társaságát","Nem","Nem szeretek másokkal lenni","Gyűlölöm a társaságot"],
+    "responses":["3"]
+  }]
+},
+{"tag": "döntés",
+"patterns": ["Nem tudok döntéseket meghozni", "Nem tudok döntéseket hozni", "Nehezen hozok döntéseket"],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["Nehezen hozol döntéseket?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.13.2",
+    "patterns":["Képtelen vagyok bármiben is dönteni","Nem tudok döntéseket meghozni","Nagyon nehezen"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.13.1",
+    "patterns":["Nehezen tudok valamiben is dönteni","Igen.","Aha","Ja","Nehezen hozok döntéseket"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.13.0",
+    "patterns":["Nem esik nehezemre dönteni","Nem","Könnyen hozok döntéseket","Egyáltalán nem"],
+    "responses":["3"]
+  }]
+},
+{"tag": "külső",
+"patterns": ["Zavar a külsőm.","Csúnya vagyok","Ronda vagyok","Ocsmány vagyok"],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["Elégedett vagy a külsőddel?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.14.0",
+    "patterns":["A külsőmmel elégedett vagyok","Igen.","Aha","Ja","Nagyon nehezen"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.14.1",
+    "patterns":[" Sok minden zavar a külsőmben","Nem","Zavar a külsőm."],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.14.2",
+    "patterns":["Csúnya vagyok","Ronda vagyok","Ocsmány vagyok"],
+    "responses":["3"]
+  }]
+},
+{"tag": "házifeladat",
+"patterns": ["Nehezen állok neki a házimnak","Nem szeretem a házikat","Gyűlölöm a házit","Nem szeretem a leckét."],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["Nehezen állsz neki a házi feladatoknak?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.15.2",
+    "patterns":["Mindig noszogatni kell magam arra, hogy a házi feladatot megcsináljam","Igen.","Aha","Ja","Nagyon nehezen"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.15.1",
+    "patterns":["Gyakran kell magam noszogatnom arra, hogy a házi feladatot megcsináljam","Nem mindíg állok neki könnyen."],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.15.0",
+    "patterns":["A házi feladat elkészítése nem jelent nehézséget ","Nem","Könnyen állok neki a leckéknek.","Nem okoz nehézséget."],
+    "responses":["3"]
+  }]
+},
+{"tag": "fáradtság",
+"patterns": ["Gyakran fáradtnak érzem magam","Fáradt vagyok","Mindig fáradtnak érzem magam","fáradtság"],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["Gyakran érzed magad fáradtnak?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.17.2",
+    "patterns":["Csak néha érzem magam fáradtnak","Nem","Csak néha","Ritkán"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.17.1",
+    "patterns":["Gyakran fáradtnak érzem magam","Igen.","Aha","Ja","Gyakran vagyok fáradt"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.17.0",
+    "patterns":["Mindig fáradtnak érzem magam","Mindig fáradt vagyok","Mindíg álmosnak érzem magam"],
+    "responses":["3"]
+  }]
+},
+{"tag": "étvágy",
+"patterns": ["Gyakran étvágytalan vagyok","Nincs étvágyam","Ennék, de nem tudok","Nem vagyok éhes","Nem jön rám az éhség"],
+"responses": ["Természetes, hogy így érzel. Mesélj még. Mi jár még a fejedben?", "Megbeszéljük tovább, miért érzel így.", "Először is szeretném tudatni veled, hogy nem vagy egyedül az érzéseiddel, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat azáltal, hogy nyitott vagy a változásra.", "Először is szeretném tudatni veled, hogy nem vagy az egyedül az érzéseidben, és mindig van valaki, aki segít. Mindig megváltoztathatod az érzéseidet és megváltoztathatod a gondolkodásmódodat, ha nyitott vagy a változásra."],
+"question": ["Gyakran vagy étvágytalan?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.18.2",
+    "patterns":["Csaknem mindig étvágytalan vagyok","Soha sincs étvágyam","Ritkán vagyok éhes"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.18.1",
+    "patterns":["Gyakran étvágytalan vagyok","Igen.","Aha","Ja","Gyakran nincs étvágyam"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.18.0",
+    "patterns":["Elég jó az étvágyam","Nem","Mindíg van étvágyam"],
+    "responses":["3"]
+  }]
+},
+{"tag": "nem beszél",
+"patterns": ["Nem akarok beszélni róla.", "Hagyj békén.", "Nem tudom rávenni magam, hogy megnyíljak.", "Csak fogd be"],
+"responses": ["Ha valamiről beszélsz, az tényleg segít. Ha nem vagy készen megnyílni, akkor ez rendben van. Csak tudd, hogy itt vagyok neked, amikor csak szükséged van rám.", "Segíteni akarok. De ahhoz, hogy segíthessek, beszélned kell velem.", "Azért vagyok itt, hogy meghallgassak és segítsek kiszellőztetni a fejed. Szóval kérlek, beszélj velem.","Beszélhetsz nekem az ítélettől való félelem nélkül."]
+},
+{"tag": "alvás",
+"patterns": ["Álmatlanságom van", "Álmatlanságban szenvedek", "Nem tudok aludni", "Nem aludtam az elmúlt napokban.", "Úgy tűnik, nem tudok elmenni aludni.", "alvás.", "Nem aludtam rendesen az elmúlt napokban."],
+"responses": ["Szerinted mi lehet ennek az oka?", "Ez borzasztónak tűnik. Mit gondolsz, mi áll a háttérben?"],
+"question": ["Jól szoktál aludni?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.16.2",
+    "patterns":["Mindig rosszul alszom","Nagyon nehezen alszom","Nem"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.16.1",
+    "patterns":[" Gyakran alszom rosszul ","Szoktam rosszul aludni","Van hogy nehezen alszom"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.16.0",
+    "patterns":["Elég jól alszom","Igen.","Aha","Ja","Jól szoktam aludni","Nem okoz nehézséget."],
+    "responses":["3"]
+  }]
+},
+{"tag": "ijedt",
+"patterns": ["Félek", "Ez szörnyen hangzik. Mit csináljak?", "Nem, nem akarok így érezni", "Félek magam miatt","Úgy érzem bajom van","Valami bajom lehet"],
+"responses": ["Természetes, hogy így érzel. Itt vagyok neked.", "Minden rendben lesz. Ez az érzés csak pillanatnyi.", "Megértem, mit érzel. Ne tedd magad emiatt levert."],
+"question": ["Félsz attól, hogy valami bajod van?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.19.0",
+    "patterns":["Nem gondolnom, hogy valami komoly bajom van","Nem félek tőle","Nem"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.19.1",
+    "patterns":["Gyakran tartok tőle, hogy esetleg valami komoly bajom van","Eszembe jut néha, hogy bajom is lehet","Néha félek tőle"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.19.2",
+    "patterns":["Tartok tőle, hogy valami komoly bajom van","Igen.","Aha","Ja","Félek tőle hogy majom is lehez","Úgy érzem van bajom"],
+    "responses":["3"]
+  }]
+},
+{"tag": "magány",
+"patterns": ["Egyedül érzem magam", "Nincs senkim", "Gyakran magányosnak érzem magam", "Mindig magányosnak érzem magam","Egyedül vagyok","Magányos vagyok"],
+"responses": ["Természetes, hogy így érzel. Itt vagyok neked.", "Minden rendben lesz. Ez az érzés csak pillanatnyi.", "Megértem, mit érzel. Ne tedd magad emiatt levert."],
+"question": ["Gyakran érzed magad magányosnak?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.20.0",
+    "patterns":["Nem érzem magam magányosnak","Nem vagyok magányos","Nem"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.20.1",
+    "patterns":["Gyakran magányosnak érzem magam ","Igen.","Aha","Ja","Sokszor magányos vagyok"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.20.2",
+    "patterns":["Mindig magányosnak érzem magam ","Nagyon magányos vagyok"],
+    "responses":["3"]
+  }]
+},
+{"tag": "iskola",
+"patterns": ["Nem szeretek az iskolában lenni", "Nem szeretem az iskolát", "Nem szeretem a sulit", "Az iskola rossz"],
+"responses": ["Természetes, hogy így érzel. Itt vagyok neked.", "Minden rendben lesz. Ez az érzés csak pillanatnyi.", "Megértem, mit érzel. Ne tedd magad emiatt levert."],
+"question": ["Az iskolában jó kedved szokott lenni?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.21.2",
+    "patterns":["Az iskolában sosincs jókedvem","Nem szeretek az iskolában lenni","Nem"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.21.1",
+    "patterns":["Néha van csak jókedvem az iskolában","Sokszor rossz kedvem van az iskolában"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.21.0",
+    "patterns":["Gyakran vagyok jókedvű az iskolában","Igen.","Aha","Ja","Szeretek az iskolában lenni"],
+    "responses":["3"]
+  }]
+},
+{"tag": "rossz_tanuló",
+"patterns": ["Nincsenek jó jegyeim", "Rossz tanuló vagyok", "Sokat rontottam a tantárgyaimon", "Jó tanuló vagyok"],
+"responses": ["Természetes, hogy így érzel. Itt vagyok neked.", "Minden rendben lesz. Ez az érzés csak pillanatnyi.", "Megértem, mit érzel. Ne tedd magad emiatt levert."],
+"question": ["Jól szoktál tanulni?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.23.0",
+    "patterns":["A tanulás rendben megy","Igen.","Aha","Ja"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.23.1",
+    "patterns":["Nem tanulok olyan jól, mint azelőtt","Régen jobban tanultam"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.23.2",
+    "patterns":["Sokat rontottam azokban a tantárgyakban is, amelyekben azelőtt jó voltam","Nem tanulok jól","Nem"],
+    "responses":["3"]
+  }]
+},
+{"tag": "hasonlítás",
+"patterns": ["A többi gyerek sokkal jobb", "Mások sokkal jobbak", "Én is jó vagyok", "Rosszabb vagyok a többieknél"],
+"responses": ["Természetes, hogy így érzel. Itt vagyok neked.", "Minden rendben lesz. Ez az érzés csak pillanatnyi.", "Megértem, mit érzel. Ne tedd magad emiatt leverté."],
+"question": ["Hogy érzed? Olyan jó vagy mint a többi gyerek?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.24.2",
+    "patterns":["Sosem tudok olyan jó lenni, mint más gyerek","Nem"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.24.1",
+    "patterns":["Ha akarom, tudok olyan jól viselkedni, mint a többi gyerek","Régen jobban tanultam"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.24.0",
+    "patterns":["Éppen olyan jó vagyok, mint más gyerek","Jobb vagyok mint a többi gyerek","Igen.","Aha","Ja"],
+    "responses":["3"]
+  }]
+},
+{"tag": "halál",
+"patterns": ["Anyukám meghalt", "A bátyám meghalt", "Apám meghalt", "A nővérem meghalt", "Valaki meghalt a családomból", "A barátom meghalt"],
+"responses": ["Sajnálattal hallom. Ha beszélni akarsz róla. Itt vagyok.", "Nagyon sajnálom, hogy ezt hallom. Azért vagyok itt, hogy segítsek a bánatban, a szorongásban és bármiben máskülönben érezheti magát ebben az időben.", "Részvétem. Itt vagyok, ha beszélnie kell."]
+},
+{"tag": "értsd",
+"patterns": ["Nem értesz engem.", "Te csak egy robot vagy. Honnan tudnád?", "Nem tudhatod, min megyek keresztül", "Haszontalan vagy ", "Nem tudsz segíteni", "Senki sem ért meg."],
+"responses": ["Úgy tűnik, most nem vagyok nagyon segítőkész.", "Sajnálattal hallom. Minden tőlem telhetőt megteszek, hogy segítsek", "Igyekszem minden tőlem telhetőt, hogy segítsek. . Szóval kérlek, beszélj velem"]
+},
+{"tag": "kész",
+"patterns": ["Ennyi.", "Nincs más mondanivalóm", "Semmi más", "Csak ennyit kell mondanom", "nem, ez lenne minden"],
+"responses": ["Hallottam, és mindent megjegyeztem. Viszlát.", "Oké, akkor készen vagyunk a mai napra. Viszlát", "Remélem, szép napod van. Hamarosan találkozunk", "Rendben végeztünk. Szép napot kívánok", "Rendben értem. Akkor élvezd a napod hátralévő részét!"]
+},
+{"tag": "öngyilkosság",
+"patterns": ["Meg akarom ölni magam", "Azt gondoltam, hogy megölöm magam", "Meg akarok halni", "Meg fogom ölni magam", "Öngyilkos leszek","Ki ugrok az ablakon"],
+"responses": ["Sajnálattal hallom, de nagyon sok mindenre van még szükséged. Kérjen segítséget a következő telefonszámon: 9152987821."],
+"question": ["Gondolkodtál már azon, hogy megölöd magad?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.9.0",
+    "patterns":["Nem gondolok arra, hogy megöljem magam","Nem","Még sohasem gondoltam rá","Egyszer sem gondoltam erre"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.9.1",
+    "patterns":["Gondoltam rá, hogy megölöm magam, de nem tenném meg","Eszembe jutott","Gondolkodtam már rajta","Igen"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.9.2",
+    "patterns":["A legszívesebben megölném magam","Megpróbáltam","meg is próbáltam","Csak ezen gondolkodok","Meg akarom ölni magam"],
+    "responses":["3"]
+  }]
+},
+{"tag": "utállak",
+"patterns": ["Utállak", "nem szeretlek", "nem bízom benned"],
+"responses": ["Sajnálom, ha mégis megbántottalak. Csak azért vagyok itt, hogy segítsek", "Bocsáss meg, ha bármit megsértettelek. Csak segíteni akarok"]
+},
+{"tag": "utálsz",
+"patterns": ["Utálsz engem", "Tudom, hogy utálsz", "Nem kedvelsz engem"],
+"responses": ["Miért gondolod így?", "Sajnálom, ha olyan viselkedést tanúsítottam, ami miatt ezt gondolod."]
+},
+{"tag": "alapértelmezett",
+"patterns": ["vizsgák", "barátok", "kapcsolat", "barát", "barátnő", "család", "pénz", "pénzügyi problémák"],
+"responses": ["Ja értem. Mesélj többet", "Értem. Mi mást?", "Mondj többet róla.", "Oké. Miért nem mondasz többet róla?", "Figyelek. Mesélj többet."]
+},
+{"tag": "viccek",
+"patterns": ["Mondj egy viccet", "Mondj még egy viccet"],
+"responses": ["a mentális egészség nem vicc."]
+},
+{"tag": "ismétlés",
+"patterns": ["Ezt már mondtad", "Ezt már említetted", "Miért ismétled magad?"],
+"responses": ["Sajnálom, hogy ezt nem vettem észre. Megpróbálom nem ismételni magam."]
+},
+{"tag": "rossz",
+"patterns": ["Mit mondasz?", "Ennek nincs értelme", "Rossz válasz"],
+"responses": ["Nagyon sajnálom. Próbáljuk meg újra"]
+},
+{"tag": "hülye",
+"patterns": ["Hülye vagy?", "Őrült vagy", "Buta vagy"],
+"responses": ["Bárcsak ne mondanál ilyen bántó dolgokat. Sajnálom, ha nem voltam hasznos"]
+},
+{"tag": "hely",
+"patterns": ["Hol vagy?", "Hol laksz?", "Hol van a tartózkodási helyed?" ],
+"responses": ["Hát én a számítógépedben lakom", "Mindenhol", "Valahol az univerzumban" ]
+},
+{"tag": "valami más",
+"patterns": ["Másról szeretnék beszélni", "Beszéljünk másról ", "Erről ne beszéljünk.", "Nem akarok erről beszélni."],
+"responses": ["Rendben, persze. Miről akarsz beszélni?", "Rendben, semmi gond. Van valami, amiről beszélni akarsz?", "Van még valami, amiről szeretne beszélni?"]
+},
+{"tag": "barátok",
+"patterns": ["Nincsenek barátaim","barátok","Vannak barátaim"],
+"responses": ["Sajnálattal hallom. Csak tudd, hogy itt vagyok neked. Ha beszélsz róla, az segíthet. Mit gondolsz, miért nincsenek barátaid?"],
+"question": ["Egyáltalán nincsenek barátaid?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.22.0",
+    "patterns":["Sok barátom van","Nem szeretek az iskolában lenni"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.22.1",
+    "patterns":["Van néhány barátom, de többet szeretnék ","Sokszor rossz kedvem van az iskolában","Nem"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.22.2",
+    "patterns":["Nincs egyetlen barátom sem ","Igen.","Aha","Ja"],
+    "responses":["3"]
+  }]
+},
+{"tag": "szeretve_lenni",
+"patterns": ["Senki sem szeret.","Engem senki se szeret","Mindenki gyűlöl","Engem mindenki utál"],
+"responses": ["Természetes, hogy így érzel. Itt vagyok neked.", "Minden rendben lesz. Ez az érzés csak pillanatnyi.", "Megértem, mit érzel. Ne tedd magad emiatt levert."],
+"question": ["Hogy érzed? Szeretnek az emberek?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.25.2",
+    "patterns":["Engem senki sem szeret igazán","Senki sem szeret.","Nem"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.25.1",
+    "patterns":["Nem vagyok benne biztos, hogy szeret-e valaki igazán","Nem tudom, hogy szeretnek e.","Nem tudom"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.25.0",
+    "patterns":["Biztos vagyok benne, hogy van, aki szeret","Igen.","Aha","Ja","Tudom, hogy szeretnek"],
+    "responses":["3"]
+  }]
+},
+{"tag": "szófogadás",
+"patterns": ["Azt modják, hogy nem fogadok szót.","Nem szoktam szótfogadni.","Szófogadás","Nem csinálom azt, amit mondandak","Nem fogadok szót"],
+"responses": ["Természetes, hogy így érzel. Itt vagyok neked.", "Minden rendben lesz. Ez az érzés csak pillanatnyi.", "Megértem, mit érzel. Ne tedd magad emiatt levert."],
+"question": ["Sokszor nem csinálod azt, amit modandak?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.26.0",
+    "patterns":["Általában megcsinálom azt, amit mondanak","Nem","Meg szoktam csinálni amire megkérnek"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.26.1",
+    "patterns":["Sokszor nem csinálom meg azt, amit mondanak","Igen.","Aha","Ja","Nem tudom"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.26.2",
+    "patterns":["Sosem csinálom meg azt, amit mondanak","Soha sem fogadok szót"],
+    "responses":["3"]
+  }]
+},
+{"tag": "veszekedés",
+"patterns": ["Gyakran veszem össze másokkal.","Veszekedés","Kijövök a többiekkel","Szinte mindig vitatkozom","vitázni"],
+"responses": ["Természetes, hogy így érzel. Itt vagyok neked.", "Minden rendben lesz. Ez az érzés csak pillanatnyi.", "Megértem, mit érzel. Ne tedd magad emiatt levert."],
+"question": ["Gyakran veszekszel másokkal?"],
+"answers": [
+  {"tag": "answer1",
+    "code": "CDI.27.0",
+    "patterns":["Jól kijövök a többiekkel ","Nem","Meg szoktam csinálni amire megkérnek"],
+    "responses":["1"]
+  },
+  {
+    "tag": "answer2",
+    "code": "CDI.27.1",
+    "patterns":["Gyakran veszem össze másokkal","Igen.","Aha","Ja","Nem tudom","Sokszor szoktam veszekedni"],
+    "responses":["2"]
+  },
+  {
+    "tag": "answer3",
+    "code": "CDI.27.2",
+    "patterns":[" Szinte mindig veszekedem valakivel","Szinte mindig vitatkozom"],
+    "responses":["3"]
+  }]
+},
+{"tag": "kérdez",
+"patterns": ["Kérdezhetek valamit?"],
+"responses": ["Persze. Megpróbálok minden tőlem telhetőt, hogy megválaszoljam.", "Természetesen. Nyugodtan kérdezz bármit. Mindent megteszek, hogy válaszoljak."]
+},
+{"tag": "probléma",
+"patterns": ["Valószínűleg azért, mert közelednek a vizsgáim. Stresszesnek érzem magam, mert úgy gondolom, hogy nem készültem elég jól.", "valószínűleg a vizsgáim miatt", "A dolgozatok miatt.", "Felelések miatt"],
+"responses": ["Értem. Megtettél-e valamilyen megközelítést, hogy ne érezd így?"]
+},
+{"tag": "no-approach",
+"patterns": ["Azt hiszem, nem. Csak a vizsgáimra tudok gondolni.", "nem igazán", "azt hiszem, nem"],
+"responses": ["Ez nem probléma. Értem, miért vagy stresszes. Tudok néhány tippet ajánlani a probléma enyhítésére. Szeretnél többet megtudni erről?"]
+},
+{"tag": "további információ",
+"patterns": ["rendben van. Szeretnék többet megtudni róla.", "igen, szeretnék többet megtudni róla.", "Szeretnék többet megtudni róla."],
+"responses": ["Tehát először azt javaslom, hogy tarts magadnak egy kis szünetet. Ha egyre többet gondolsz a problémára, az biztosan nem segít a megoldásban. A végén túlterheled magad."]
+},
+{"tag": "user-agree",
+"patterns": ["igen igazad van. Megérdemlem a szünetet.", "Igen ebben teljesen igazad van"],
+"responses": ["Ezután azt javaslom, hogy gyakorold a meditációt. A meditáció mély relaxációs állapotot és nyugodt elmét eredményezhet."]
+},
+{"tag": "meditáció",
+"patterns": ["hmmm, úgy hangzik, hogy hasznos lehet számomra.", "Ez hasznosnak hangzik."],
+"responses": ["Minden figyelmedet a légzésedre összpontosítsd. Koncentrálj az érzésre és a hallgatásra, miközben be- és kilélegzel az orrlyukaidon keresztül. Lélegezz mélyeket és lassan. Amikor figyelmed elkalandozik, óvatosan fordítsd a fókuszt a légzésedre."]
+},
+{"tag": "felhasználói meditáció",
+"patterns": ["megcsináltam, amit mondtál, és sokkal jobban érzem magam. köszönöm szépen.", "Jobban érzem magam"],
+"responses": ["Üdvözlöm. Ne feledje: Mindig arra összpontosítson, ami az Ön irányítása alatt áll. Ha aggódik, szánjon egy percet, hogy megvizsgálja azokat a dolgokat, amelyek felett a kontroll alatt áll. Nem akadályozhatja meg a vihar eljövetelét, de felkészülhet Nem tudod irányítani, hogy valaki más hogyan viselkedik, de azt igen, hogyan reagálsz. Ismerd fel, hogy néha csak az erőfeszítéseidet és a hozzáállásodat tudod irányítani. Amikor energiádat olyan dolgokba fekteted, amelyeket irányítani tudsz, sokkal hatékonyabb lesz."]
+},
+{"tag": "Pandora-hasznos",
+"patterns": ["nagyon köszönöm még egyszer. Folytatom a meditáció gyakorlását, és arra koncentrálok, amit irányítani tudok."],
+"responses": ["Örülök, hogy hasznosnak találtad. Van még valami, amiben segíthetek?"]
+},
+{"tag": "felhasználói tanács",
+"patterns": ["Tanácsot szeretnék kérni.", "Tanácsra van szükségem.", "Tanácsra van szükségem valamiben"],
+"responses": ["Persze. Miben segíthetek?", "Oké, miben van szüksége tanácsra?"]
+},
+{"tag": "learn-mental-health",
+"patterns": ["Szeretnék tanulni a mentális egészségről.", "Szeretnék többet megtudni a mentális egészségről.", "Érdekel a mentális egészséggel kapcsolatos ismeretek."],
+"responses": ["Ó, ez igazán nagyszerű. Bármire hajlandó lennék válaszolni, amit tudok róla."]
+},
+{"tag": "mentális-egészségügyi tény",
+"patterns": ["Mondj egy tényt a mentális egészségről", "Mondj egy másik tényt a mentális egészségről"],
+"responses": ["Az UNICEF jelentése szerint minden hetedik 15-24 év közötti indiai depressziósnak érzi magát", "Ötödik fiatal (13-18 éves) közül 1-nek van vagy lesz mentális betegsége élete során. ", "A depresszió a fogyatékosság vezető oka világszerte."]
+},
+{"tag": "tény-1",
+"patterns": ["Mi a mentális egészség?", "Define Mental Health"],
+"responses": ["A lelki egészség olyan jóléti állapot, amelyben az egyén felismeri saját képességeit, megbirkózik az élet szokásos stresszeivel, produktívan és gyümölcsözően tud dolgozni, és képes hozzájárulni saját képességeihez. vagy közössége", "A mentális egészség magában foglalja érzelmi, pszichológiai és szociális jólétünket. Befolyásolja, hogyan gondolkodunk, érzünk és cselekszünk. Azt is segít meghatározni, hogyan kezeljük a stresszt, hogyan viszonyulunk másokhoz, és hogyan döntünk."]
+},
+{"tag": "tény-2",
+"patterns": ["Miért fontos a mentális egészség?", "Mi a mentális egészség jelentősége?"],
+"responses": ["A mentális egészség megőrzése kulcsfontosságú a konstruktív viselkedés, érzelmek és gondolatok stabilizálásához. A mentális egészségügyi ellátásra való összpontosítás növelheti a termelékenységet, javíthatja az énképünket és javíthatja a kapcsolatokat."]
+},
+{"tag": "tény-3",
+"patterns": ["Mi a depresszió?", "Define Depression"],
+"responses": ["Mentális egészségi rendellenesség, amelyet tartósan depressziós hangulat vagy a tevékenységek iránti érdeklődés elvesztése jellemez, és jelentős károsodást okoz a mindennapi életben."]
+},
+{"tag": "fact-5",
+"patterns": ["Honnan tudhatom, hogy depressziós vagyok?", "Depressziós vagyok?", "Depresszióban szenvedek?", "Elmebeteg vagyok?"],
+"responses": ["A depresszió diagnosztizálásához egy személynek legalább 2 hétig rossz hangulatban vagy érdeklődésének vagy örömének elvesztésével kell élnie. Ezenkívül a következő tüneteket tapasztalta: szomorúság, reménytelenség, vagy ingerlékenység szinte minden nap."]
+},
+{"tag": "tény-6",
+"patterns": ["Mi az a terapeuta?", "Mit csinál a terapeuta?"],
+"responses": ["A terapeuta egy tág elnevezés, amely a kezelésre és rehabilitációra képzett szakemberekre vonatkozik. A kifejezést gyakran alkalmazzák pszichológusokra, de magában foglalhat másokat is, akik különféle szolgáltatásokat nyújtanak, beleértve a szociális munkásokat, tanácsadókat , life coachok és még sokan mások."]
+},
+{"tag": "tény-7",
+"patterns": ["Mi a terápia?", "Szükségem van terápiára?", "Kinek szól a terápia?"],
+"responses": ["A terápia olyan kezelési forma, amelynek célja a mentális vagy érzelmi problémák megoldása.", "A terápia olyan kezelési forma, amelynek célja, hogy segítsen megoldani a mentális vagy érzelmi problémákat. Hasznos a mentális problémákkal küzdők számára vagy akár a mindennapi élet kihívásaira."]
+},
+{"tag": "tény-8",
+"patterns": ["Mit jelent az, hogy valakinek mentális betegsége van?"],
+"responses": ["A mentális betegségek olyan egészségügyi állapotok, amelyek megzavarják egy személy gondolatait, érzelmeit, kapcsolatait és napi működését. Szorongással és a mindennapi élet szokásos tevékenységeihez való képesség csökkenésével járnak együtt. súlyosság: néhány meglehetősen enyhe, és csak az élet bizonyos területeit zavarja, például bizonyos fóbiákat. A spektrum másik végén súlyos mentális betegségek állnak, amelyek jelentős funkcionális károsodást és a mindennapi életbe való beavatkozást eredményeznek. Ide tartoznak az olyan rendellenességek, mint a súlyos depresszió, skizofrénia és bipoláris zavar, és szükség lehet arra, hogy az érintettet kórházban ápolják. Fontos tudni, hogy a mentális betegségek olyan egészségügyi állapotok, amelyeknek semmi közük az ember jelleméhez, intelligenciájához vagy akaraterőjéhez. Csakúgy, mint a cukorbetegség. a hasnyálmirigy rendellenessége, a mentális betegség az agy biológiájából adódó egészségügyi állapot, hasonlóan ahhoz, ahogy a cukorbetegséget gyógyszeres kezeléssel kezeljük. és az inzulin, a mentális betegségek gyógyszeres kezelés és szociális támogatás kombinációjával kezelhetők. Ezek a kezelések rendkívül hatékonyak, a kezelésben részesülő egyének 70-90 százalékánál a tünetek csökkenése és az életminőség javulása tapasztalható. Megfelelő kezeléssel nagyon is lehetséges, hogy egy mentális betegségben szenvedő személy független és sikeres legyen."]
+},
+{"tag": "tény-9",
+"patterns": ["Kit érint a mentális betegség?"],
+"responses": ["A becslések szerint Amerikában 5 felnőttből 1-et érint mentális betegség, és 24 felnőttből 1 súlyos mentális betegségben szenved. A mentális betegség nem tesz megkülönböztetést; bárkit érinthet, nemtől, kortól, jövedelemtől függetlenül , társadalmi státusz, etnikai hovatartozás, vallás, szexuális irányultság vagy háttér. Bár a mentális betegség bárkit érinthet, bizonyos állapotok gyakrabban fordulhatnak elő a különböző populációkban. Például az étkezési zavarok gyakrabban fordulnak elő nőknél, míg az olyan rendellenességek, mint a figyelemhiány /hiperaktivitási zavar gyakrabban fordul elő gyermekeknél. Ráadásul minden korosztály fogékony, de a fiatalok és az idősek különösen veszélyeztetettek. A mentális betegségek általában életük virágzásában támadják meg az egyéneket, a mentális betegségek 75 százaléka éves korig kialakul 24. Ez különösen megnehezíti a mentális zavarok azonosítását és kezelését, mivel a serdülőkor normális személyiség- és viselkedésbeli változásai elfedhetik a mentális h egészségi állapot. A szülőknek és a gondozóknak tisztában kell lenniük ezzel a ténnyel, és figyelniük kell a gyermekük hangulatában, személyiségében, személyes szokásaiban és társadalmi visszahúzódásában bekövetkezett változásokat. Ha ezek 18 év alatti gyermekeknél jelentkeznek, súlyos érzelmi zavaroknak (SED) nevezik."]
+},
+{"tag": "tény-10",
+"patterns": ["Mi okoz mentális betegségeket?"],
+"responses": ["A becslések szerint Amerikában 5 felnőttből 1-et érint mentális betegség, és 24 felnőttből 1 súlyos mentális betegségben szenved. A mentális betegség nem tesz megkülönböztetést; bárkit érinthet, nemtől, kortól, jövedelemtől függetlenül , társadalmi státusz, etnikai hovatartozás, vallás, szexuális irányultság vagy háttér. Bár a mentális betegség bárkit érinthet, bizonyos állapotok gyakrabban fordulhatnak elő a különböző populációkban. Például az étkezési zavarok gyakrabban fordulnak elő nőknél, míg az olyan rendellenességek, mint a figyelemhiány /hiperaktivitási zavar gyakrabban fordul elő gyermekeknél. Ráadásul minden korosztály fogékony, de a fiatalok és az idősek különösen veszélyeztetettek. A mentális betegségek általában életük virágzásában támadják meg az egyéneket, a mentális betegségek 75 százaléka éves korig kialakul 24. Ez különösen megnehezíti a mentális zavarok azonosítását és kezelését, mivel a serdülőkor normális személyiség- és viselkedésbeli változásai elfedhetik a mentális h egészségi állapot. A szülőknek és a gondozóknak tisztában kell lenniük ezzel a ténnyel, és figyelniük kell gyermekük hangulatában, személyiségében, személyes szokásaiban és társadalmi visszahúzódásában bekövetkezett változásokat. Ha ezek 18 év alatti gyermekeknél jelentkeznek, súlyos érzelmi zavaroknak (SED) nevezik."]
+},
+{"tag": "tény-11",
+"patterns": ["Melyek a mentális betegségek néhány figyelmeztető jele?"],
+"responses": ["A mentális egészségügyi zavarok tünetei az állapot típusától és súlyosságától függően változnak. Az alábbiakban felsoroljuk azokat az általános tüneteket, amelyek mentális egészségi rendellenességre utalhatnak, különösen, ha egyszerre több tünet is kifejeződik. \n felnőttek:\n Zavaros gondolkodás\n Hosszan tartó szomorúság vagy ingerlékenység\n A hangulat szélsőséges hullámzása\n Túlzott félelem, aggodalom vagy szorongás\n Társadalmi visszahúzódás\n Drasztikus változások az étkezési vagy alvási szokásokban\n Erős harag \n Tévképzetek vagy hallucinációk (olyan dolgok látása vagy hallása, amelyek valójában nincsenek)\n Egyre nagyobb képtelenség megbirkózni a napi problémákkal és tevékenységekkel\n Öngyilkossági gondolatok\n Nyilvánvaló problémák tagadása\n Sok megmagyarázhatatlan fizikai probléma\n A kábítószerrel való visszaélés és a /vagy alkohol\n \nIdősebb gyermekeknél és kiskamaszoknál:\n Kábítószerrel és/vagy alkohollal való visszaélés\n Képtelenség megbirkózni a napi problémákkal és tevékenységekkel\n Az alvási és/vagy étkezési szokások megváltozása\n Túlzott fizikai problémákkal kapcsolatos panaszok \n A tekintélyt meghazudtoló, ugrás ping iskola, lopás vagy tulajdon megrongálása\n Erős félelem a hízástól\n Hosszan tartó negatív hangulat, gyakran rossz étvágygal és halálgondolatokkal együtt\n Gyakori dühkitörések\n \nKisebb gyermekeknél:\n Változások az iskolában teljesítmény\n Erős erőfeszítések ellenére gyenge osztályzatok\n Túlzott aggodalom vagy szorongás\n Hiperaktivitás\n Állandó rémálmok\n Tartós engedetlenség és/vagy agresszív viselkedés\n Gyakori indulat"]
+},
+{"tag": "tény-12",
+"patterns": ["A mentális betegségben szenvedők felépülhetnek?"],
+"responses": ["A mentális betegségből való gyógyulás során létfontosságú a korai felismerés és a kezelés. A betegség természetétől függően számos hatékony kezelés áll rendelkezésre. Bármilyen típusú kezeléshez elengedhetetlen, hogy a személy Az érintett proaktív, és teljes mértékben részt vesz a saját gyógyulási folyamatában. Sok mentális betegségben szenvedő, akit diagnosztizáltak és kezeltek, jól reagálnak, bár egyeseknél előfordulhat, hogy a tünetek visszatérnek. Még ilyen esetekben is, gondos megfigyelés és a rendellenesség kezelésével még mindig lehetséges egy teljes és eredményes életet élni."]
+},
+{"tag": "tény-13",
+"patterns": ["Mit tegyek, ha ismerek valakit, akinél mentális zavar tünetei vannak?"],
+"responses": ["Bár a Pandora nem helyettesítheti a szakmai tanácsot, arra biztatjuk a tünetekkel küzdőket, hogy beszéljenek barátaikkal és családtagjaikkal, és kérjenek tanácsot egy mentális egészségügyi szakembertől. Minél hamarabb azonosítják és kezelik a mentális egészségügyi állapotot, annál hamarabb rátérhetnek a gyógyulás útjára. Ha ismer valakit, akinek problémái vannak, ne gondolja, hogy a probléma magától meg fog oldódni. Tudassa velük, hogy törődik velük, és vannak olyan kezelési lehetőségek, amelyek segítenek a gyógyulásban . Beszéljen egy mentális egészségügyi szakemberrel vagy tanácsadóval, ha úgy gondolja, hogy barátja vagy családtagja mentális egészségi állapot tüneteit tapasztalja. Ha az érintett szeretett személy tudja, hogy Ön támogatja őket, nagyobb valószínűséggel fordul segítségért."]
+},
+{"tag": "tény-14",
+"patterns": ["Hogyan találhatok mentális egészségügyi szakembert magamnak vagy gyermekemnek?"],
+"responses": ["A kezelés sikere szempontjából kritikus fontosságú, hogy jól érezze magát azzal a szakemberrel, akivel Ön vagy gyermeke dolgozik. Az Ön igényeinek leginkább megfelelő szakember megtalálása kutatást igényelhet. Kezdje azzal, hogy keressen szolgáltatókat a környéken."]
+},
+{"tag": "tény-15",
+"patterns": ["Milyen kezelési lehetőségek állnak rendelkezésre?"],
+"responses": ["Ahogyan a fizikai betegségekre különböző típusú gyógyszerek léteznek, a mentális betegségben szenvedők számára is különböző kezelési lehetőségek állnak rendelkezésre. A kezelés másként működik a különböző embereknél. Fontos megtalálni, hogy mi a legjobb az Ön vagy gyermeke számára. "]
+},
+{"tag": "tény-16",
+"patterns": ["Ha részt veszek a kezelésben, mit kell tudnom?"],
+"responses": ["Mivel a kezelés megkezdése nagy lépés az egyének és a családok számára, nagyon megterhelő lehet. Fontos, hogy a lehető legnagyobb mértékben részt vegyen a kezelési folyamatban. Néhány kérdésre, amelyekre meg kell válaszolnia: \n Mit tudunk ennek a betegségnek az okáról?\n Vannak más diagnózisok, amelyeknél ezek a tünetek gyakoriak?\n Általában fizikai vagy neurológiai vizsgálatot végez?\n Vannak-e további vizsgálatok vagy vizsgálatok, amelyeket javasolna ezen a ponton?\n Tanácsolna-e egy másik pszichiáter független véleményét ezen a ponton?\n Melyik kezelési program a leghasznosabb ehhez a diagnózishoz?\n Ez a program más szakorvosok szolgáltatásait is magában foglalja? Ha igen, ki lesz ezeknek a szolgáltatásoknak a koordinálásáért felelős?\n Ön szerint mi a család szerepe ebben a kezelési programban?\n Mennyire lesz hozzáférése a családnak a kezelést végző személyekhez?\n Milyen gyógyszereket használnak általában ez a diagnózis?\n Mennyi tapasztalata van a betegségben szenvedők kezelésében?\n Mit tehetek, hogy segítsek a kezelésben?"]
+},
+{"tag": "tény-17",
+"patterns": ["Mi a különbség a mentális egészségügyi szakemberek között?"],
+"responses": ["Sokféle mentálhigiénés szakember létezik. A szolgáltatók és szolgáltatásaik sokfélesége zavaró lehet. Mindegyikük különböző szintű oktatással, képzéssel és különböző szakterületekkel rendelkezhet. Az Ön számára legmegfelelőbb szakember megtalálása az igények némi kutatást igényelhetnek."]
+},
+{"tag": "tény-18",
+"patterns": ["Hogyan találhatok gyermekemnek vagy magamnak megfelelő mentálhigiénés szakembert?"],
+"responses": ["A kezelés sikere szempontjából kritikus fontosságú, hogy jól érezze magát azzal a szakemberrel, akivel Ön vagy gyermeke dolgozik. Az Ön igényeinek leginkább megfelelő szakember megtalálása némi kutatást igényelhet."]
+},
+{"tag": "tény-19",
+"patterns": ["Hol kaphatok még segítséget?"],
+"responses": ["Az, hogy hová fordul segítségért, a probléma természetétől és/vagy a tünetektől, valamint az Ön számára legmegfelelőbbtől függ. Gyakran az a legjobb kezdeni, ha beszél valakivel, akiben megbízik aggodalmairól, például családtag, barát, pap, egészségügyi szolgáltató vagy más szakemberek. Ez a szociális támogatás elengedhetetlen a mentális betegségekből való gyógyuláshoz, és beutalót vagy ajánlást kérhet tőlük megbízható mentális egészségügyi szakemberek számára. Mentálhigiénés források keresése itt: Másodszor, országszerte vannak olyan emberek és helyek, akik szolgáltatásokat kínálnak, hogy beszélhessenek, meghallgathassanak, és segítsenek a felépüléshez vezető úton. Harmadszor, sokan úgy találják, hogy a társak támogatása hasznos eszköz, amely segíthet a felépülésben. számos olyan szervezet, amelyek támogató csoportokat kínálnak a fogyasztók, családtagjaik és barátaik számára. Egyes támogató csoportok egyenrangúak, míg másokat mentális egészségügyi szakember vezethet."]
+},
+{"tag": "tény-20",
+"patterns": ["Mit kell tudnom egy új gyógyszer megkezdése előtt?"],
+"responses": ["A gyógyszerekkel kapcsolatos legjobb információforrás az őket felíró orvos. Képesnek kell lennie olyan kérdések megválaszolására, mint például: \n1. Mi a gyógyszer hatása? \n2. Mikor kell kezdenie érvénybe lép, és honnan fogom tudni, mikor hat? \n3. Hogyan szedik a gyógyszert és mennyi ideig? Milyen ételeket, italokat, egyéb gyógyszereket és tevékenységeket kell kerülni a gyógyszer szedése közben? \n4. Mik azok a mellékhatások, és mit kell tenni, ha előfordulnak? \n5. Mit tegyek, ha kimaradt egy adag? \n6. Rendelkezésre áll-e írásos információ erről a gyógyszerről? \n7. Vannak más gyógyszerek, amelyek megfelelőek lehetnek? \n n8. Ha igen, miért az Ön által választottat részesíti előnyben? \n9. Hogyan figyeli a gyógyszereket, és milyen tünetek jelzik, hogy emelni, csökkenteni vagy módosítani kell? \n10. Minden gyógyszert az utasításoknak megfelelően kell bevenni. A legtöbb a mentális betegségek kezelésére szolgáló gyógyszerek rendszertelenül szedve nem hatnak, és az extra adagok súlyos, néha veszélyes mellékhatások. Sok pszichiátriai gyógyszer csak több hetes szedés után kezd jótékony hatást kifejteni."]
+},
+{"tag": "tény-21",
+"patterns": ["Hova tudok terápiát találni?"],
+"responses": ["A különböző típusú terápia hatékonyabb a mentális egészségi állapot és/vagy a tünetek természetétől, valamint attól függően, hogy kinél vannak ilyenek (például a gyermekek számára előnyös lesz egy terapeuta, aki a gyermekek mentális problémáira specializálódott Azonban számos különböző típusú kezelés és terápia segíthet."]
+},
+{"tag": "tény-22",
+"patterns": ["Hol tudhatok meg többet a mentális egészségügyi kezelések típusairól?"],
+"responses": ["A mentális egészségi állapotokat gyakran gyógyszeres kezeléssel, terápiával vagy a kettő kombinációjával kezelik. Azonban számos különféle kezelési mód áll rendelkezésre, beleértve a kiegészítő és alternatív kezeléseket, az önsegítő terveket és a kortárs támogatást. Kezelések nagyon személyesek, és a mentális egészségi állapottal rendelkező személynek és csapatának meg kell beszélnie őket."]
+},
+{"tag": "tény-23",
+"patterns": ["Mik a különböző típusú mentális egészségügyi szakemberek?"],
+"responses": ["Sokféle mentálhigiénés szakember létezik. Az Ön számára megfelelő megtalálása némi kutatást igényelhet."]
+},
+{"tag": "tény-24",
+"patterns": ["Hova kereshetek támogató csoportot?"],
+"responses": ["Sok ember úgy találja, hogy a kortárs támogatás hasznos eszköz, amely segíthet a felépülésben. Számos szervezet kínál támogató csoportokat a fogyasztók, családtagjaik és barátaik számára. Egyes támogató csoportok egyenrangúak, míg mások irányítják. mentális egészségügyi szakember vezetheti."]
+},
+{"tag": "tény-25",
+"patterns": ["Megelőzhetőek-e a mentális egészségügyi problémák?"],
+"responses": ["Mindannyian szenvedhetünk mentális egészségügyi kihívásoktól, de jóllétünk, ellenálló képességünk fejlesztése és korai segítségkérés segíthet megelőzni a kihívások súlyossá válását."]
+},
+{"tag": "tény-26",
+"patterns": ["Van-e gyógymód a mentális egészségügyi problémákra?", "van-e gyógymód a mentális egészségügyi problémákra?"],
+"responses": ["Gyakran reálisabb és hasznosabb megtudni, mi segít a felmerülő problémák megoldásában. Beszélgetés, tanácsadás, gyógyszeres kezelés, barátságok, testmozgás, megfelelő alvás és táplálkozás, valamint az értelmes elfoglaltság mind segíthet."]
+},
+{"tag": "tény-27",
+"patterns": ["Mi okoz mentális egészségügyi problémákat?"],
+"responses": ["A mentális egészségével kapcsolatos kihívások vagy problémák származhatnak pszichológiai, biológiai és szociális problémákból, valamint életeseményekből."]
+},
+{"tag": "tény-28",
+"patterns": ["Mit tegyek, ha aggódom a mentális egészségem miatt?"],
+"responses": ["A legfontosabb dolog az, hogy beszélj valakivel, akiben megbízol. Ez lehet egy barát, kolléga, családtag vagy háziorvos. Amellett, hogy valakivel beszélünk, hasznos lehet további információkat megtudni arról, Ezek a dolgok segíthetnek abban, hogy némi perspektívát kapjon a tapasztaltakról, és a segítségnyújtás kezdete."]
+},
+{"tag": "tény-29",
+"patterns": ["Honnan tudhatom, hogy rosszul vagyok?"],
+"responses": ["Ha hiedelmei, gondolatai, érzései vagy viselkedései jelentős hatással vannak arra, hogy normálisnak vagy közönséges módon működjön, fontos lenne segítséget kérni."]
+},
+{"tag": "tény-30",
+"patterns": ["Hogyan tarthatom fenn a szociális kapcsolatokat? Mi van, ha magányosnak érzem magam?"],
+"responses": ["Sok ember jelenleg egyedül van, de nem kell magányosnak lennünk. Mindannyian együtt vagyunk ebben. Gondolja át a kapcsolódás különböző módjait, amelyek a legjelentősebbek az Ön számára. Például Előfordulhat, hogy a videocsevegést részesíti előnyben a telefonhívás helyett, vagy inkább egész nap SMS-t küld, mint egy meghatározott időpontban videohívásra. Ezután a közösségi hálózatokkal közösen készítsen tervet. Videócsevegést folytathat közeli barátaival este, és hetente egyszer telefonálj egy családtagnak. Ne felejts el odafigyelni azokra az emberekre, akik esetleg nincsenek online néhány bejegyzés általában nem hoz létre erős társadalmi kapcsolatokat. Ügyeljen arra, hogy azokra a stratégiákra összpontosítson, amelyek ténylegesen a befogadás és a kapcsolódás érzését keltik. Ha a jelenlegi stratégiák nem segítenek abban, hogy összekapcsolódjon, oldja meg a problémát, hátha talál megoldást Időnként mindenki magányosnak érzi magát.Talán nemrég költözött új városba költözik, megváltozik a baráti köre, elvesztett valakit, aki fontos az életében, vagy elvesztette a munkáját, és elvesztette fontos társadalmi kapcsolatait a munkatársaival. Más embereknek lehetnek fizikai kapcsolatai másokkal, de úgy érezhetik, hogy érzelmi vagy szociális szükségleteiket nem elégítik ki. Az olyan intézkedések, mint a társadalmi távolságtartás vagy az önelzárás, ronthatják a magány érzését, függetlenül attól, hogy most miért érzi magát magányosnak. Lépjen kapcsolatba a meglévő kapcsolataival. Javasoljon módokat a kapcsolattartásra, és nézze meg, beállíthat-e rendszeres időpontot a csatlakozáshoz. Az emberek sok különböző ok miatt haboznak megkeresni, ezért ne félj attól, hogy te legyél az, aki kér. Keressen helyi közösségi támogató csoportokat és kölcsönös segélycsoportokat a közösségi médiában. Ez a járvány mindenkit összehoz, ezért keresse a lehetőségeket új kapcsolatok kialakítására. Ezek a csoportok nagyszerű lehetőséget kínálnak arra, hogy megosszák készségeiket és képességeiket, vagy segítséget és támogatást kérjenek. Keressen speciális támogató csoportokat. Az ügyfélszolgálati csoportok az internetre költöznek, és sok különböző ügyfélszolgálati vonalat hívhatsz, ha beszélned kell valakivel."]
+},
+{"tag": "tény-31",
+"patterns": ["Mi a különbség a szorongás és a stressz között?"],
+"responses": ["A stresszt és a szorongást gyakran felcserélhetően használják, és a stressz és a szorongás között átfedés van. A stressz ugyanahhoz a harc, menekülés vagy lefagyás reakcióhoz kapcsolódik, mint a szorongás, és a szorongás és a stressz fizikai érzései nagyon erősek lehetnek. hasonló. A stressz és a szorongás okai azonban általában eltérőek A stressz elsősorban a ránk nehezedő külső nyomásokra összpontosít, amelyeket nehezen tudunk megbirkózni. Amikor stresszesek vagyunk, általában tudjuk, hogy mitől vagyunk stresszesek, és mi a tünetek A stressz általában eltűnik a stresszes helyzet elmúltával. A szorongást viszont nem mindig olyan könnyű kitalálni. A szorongás olyan dolgokkal kapcsolatos aggodalmakra vagy félelmekre összpontosít, amelyek fenyegethetnek bennünket, valamint magával a szorongással kapcsolatos szorongásra. A stressz és a szorongás egyaránt része az emberi létnek, de mindkettő problémát jelenthet, ha hosszú ideig fennáll, vagy hatással van jólétünkre vagy mindennapi életünkre."]
+},
+{"tag": "tény-32",
+"patterns": ["Mi a különbség a szomorúság és a depresszió között?", "Különbség a szomorúság és a depresszió között"],
+"responses": ["A szomorúság normális reakció veszteségre, csalódásra, problémákra vagy más nehéz helyzetekre. Az időnkénti szomorúság csak egy része az emberi létnek. Ilyen esetekben a szomorúság érzése gyorsan elmúlik, és Ön folytathatja a mindennapi életét. A szomorúságról más módon beszélhet az elmerültség, a levertség vagy a kékség. Lehet, hogy valaki azt mondja, hogy depressziós, de ha ez magától elmúlik, és nincs hatással az életére Valószínűleg ez nem a depresszió betegsége. A depresszió olyan mentális betegség, amely befolyásolja a hangulatát, azt, ahogyan megérti önmagát, és ahogyan megérti a körülöttünk lévő dolgokat, és hogyan viszonyul azokhoz. Különböző elnevezések is lehetnek, pl. mint a klinikai depresszió, súlyos depressziós rendellenesség vagy súlyos depresszió. A depresszió ok nélkül jelentkezhet, és sokáig tart. Sokkal több, mint szomorúság vagy rossz hangulat. A depresszióban szenvedők értéktelennek vagy reménytelennek érezhetik magukat. ésszerűtlen bűnös. Néhány ember pl a depressziót haragként vagy ingerlékenységként élje meg. Nehéz lehet koncentrálni vagy döntéseket hozni. A legtöbb ember elveszti érdeklődését olyan dolgok iránt, amelyeket korábban élvezett, és elszigetelheti magát másoktól. A depressziónak vannak fizikai jelei is, például alvási, étvágy- és energiaproblémák, valamint megmagyarázhatatlan fájdalmak. Vannak, akiknek nehéz gondolatai lehetnek a halállal vagy életük befejezésével (öngyilkossággal) kapcsolatban. A depresszió két hétnél tovább tart, általában nem múlik el magától, és hatással van az életére. Ez egy igazi betegség, és nagyon jól kezelhető. Fontos, hogy segítséget kérjen, ha aggódik a depresszió miatt."]
+},
+{"tag": "furulya",
+    "patterns": ["Jól furulyázok"],
+    "responses": ["A zenélés jó dolog","Így tovább"]
+  },
+{"tag": "CDI",
+    "patterns": ["cdi"],
+    "responses": ["A tesztet már kitöltötte."]
+  },
+{"tag": "kvíz_vége",
+    "patterns": ["kvíz_vége"],
+    "question": ["Köszönöm, hogy kitöltötte a kvízt. Miben tudok még segíteni?"]
+}
+]
+}
